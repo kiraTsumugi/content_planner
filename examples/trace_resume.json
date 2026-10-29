@@ -1,0 +1,161 @@
+{
+  "case": "resume",
+  "description": "失败续跑：继承已成功步骤，不重做检索与估算（加分项）",
+  "first_run": {
+    "status": "incomplete",
+    "steps": [
+      {
+        "name": "素材检索",
+        "tool": "search_materials",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "topic": "故障演练",
+          "candidates": [
+            {
+              "id": "PLAN_PREMIUM",
+              "name": "精装方案",
+              "estimated_cost": 12,
+              "quality": "high",
+              "materials": [
+                "MAT_A",
+                "MAT_C",
+                "MAT_E"
+              ]
+            },
+            {
+              "id": "PLAN_STANDARD",
+              "name": "标准方案",
+              "estimated_cost": 8,
+              "quality": "medium",
+              "materials": [
+                "MAT_A",
+                "MAT_B",
+                "MAT_D"
+              ]
+            },
+            {
+              "id": "PLAN_LITE",
+              "name": "轻量方案",
+              "estimated_cost": 5,
+              "quality": "low",
+              "materials": [
+                "MAT_B",
+                "MAT_D"
+              ]
+            }
+          ],
+          "material_count": 6
+        }
+      },
+      {
+        "name": "成本估算",
+        "tool": "estimate_cost",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "candidate_id": "PLAN_STANDARD",
+          "estimated_total": 9,
+          "budget": 10,
+          "over_budget": false,
+          "shortfall": 0.0
+        }
+      },
+      {
+        "name": "脚本生成",
+        "tool": "generate_script",
+        "status": "failed",
+        "cost": 0.0,
+        "result": {
+          "ok": false,
+          "error": "tool_error",
+          "tool": "script_gen",
+          "message": "脚本生成服务超时（故障注入）"
+        }
+      }
+    ]
+  },
+  "resume_run": {
+    "status": "incomplete",
+    "actions": [
+      "generate_script",
+      "generate_script",
+      "finish"
+    ],
+    "steps": [
+      {
+        "name": "素材检索",
+        "tool": "search_materials",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "topic": "故障演练",
+          "candidates": [
+            {
+              "id": "PLAN_PREMIUM",
+              "name": "精装方案",
+              "estimated_cost": 12,
+              "quality": "high",
+              "materials": [
+                "MAT_A",
+                "MAT_C",
+                "MAT_E"
+              ]
+            },
+            {
+              "id": "PLAN_STANDARD",
+              "name": "标准方案",
+              "estimated_cost": 8,
+              "quality": "medium",
+              "materials": [
+                "MAT_A",
+                "MAT_B",
+                "MAT_D"
+              ]
+            },
+            {
+              "id": "PLAN_LITE",
+              "name": "轻量方案",
+              "estimated_cost": 5,
+              "quality": "low",
+              "materials": [
+                "MAT_B",
+                "MAT_D"
+              ]
+            }
+          ],
+          "material_count": 6
+        }
+      },
+      {
+        "name": "成本估算",
+        "tool": "estimate_cost",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "candidate_id": "PLAN_STANDARD",
+          "estimated_total": 9,
+          "budget": 10,
+          "over_budget": false,
+          "shortfall": 0.0
+        }
+      },
+      {
+        "name": "脚本生成",
+        "tool": "generate_script",
+        "status": "failed",
+        "cost": 0.0,
+        "result": {
+          "ok": false,
+          "error": "tool_error",
+          "tool": "script_gen",
+          "message": "脚本生成服务超时（故障注入）"
+        }
+      }
+    ]
+  }
+}

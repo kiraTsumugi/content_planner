@@ -1,0 +1,29 @@
+{
+  "_comment": "候选方案模板（合成）。cost 为预估总费用（模拟单位）。模型据预算挑选可行替代。",
+  "candidates": [
+    {
+      "id": "PLAN_PREMIUM",
+      "name": "精装方案",
+      "estimated_cost": 12,
+      "materials": ["MAT_A", "MAT_C", "MAT_E"],
+      "quality": "high",
+      "note": "高质量，含用户证言与动态包装"
+    },
+    {
+      "id": "PLAN_STANDARD",
+      "name": "标准方案",
+      "estimated_cost": 8,
+      "materials": ["MAT_A", "MAT_B", "MAT_D"],
+      "quality": "medium",
+      "note": "均衡方案"
+    },
+    {
+      "id": "PLAN_LITE",
+      "name": "轻量方案",
+      "estimated_cost": 5,
+      "materials": ["MAT_B", "MAT_D"],
+      "quality": "low",
+      "note": "低成本快速出片"
+    }
+  ]
+}

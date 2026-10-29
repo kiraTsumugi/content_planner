@@ -1,0 +1,11 @@
+{
+  "_comment": "合成素材库。每个素材含类别与单位费用（模拟单位）。素材检索据此返回候选素材。",
+  "materials": [
+    {"id": "MAT_A", "name": "旅拍空镜", "category": "video", "unit_cost": 3, "duration_h": 2},
+    {"id": "MAT_B", "name": "产品特写", "category": "video", "unit_cost": 2, "duration_h": 1},
+    {"id": "MAT_C", "name": "用户证言", "category": "interview", "unit_cost": 4, "duration_h": 3},
+    {"id": "MAT_D", "name": "图文海报", "category": "graphic", "unit_cost": 1, "duration_h": 1},
+    {"id": "MAT_E", "name": "动态贴纸", "category": "motion", "unit_cost": 2, "duration_h": 2},
+    {"id": "MAT_F", "name": "背景音乐", "category": "audio", "unit_cost": 1, "duration_h": 0}
+  ]
+}

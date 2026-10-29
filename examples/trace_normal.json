@@ -1,0 +1,339 @@
+{
+  "case": "normal",
+  "description": "正常完成（含超预算重规划）",
+  "topic": "秋季营销",
+  "budget": 10,
+  "deadline": "2026-11-05",
+  "model_mode": "offline-mock",
+  "status": "draft_saved",
+  "pending": [],
+  "final": {
+    "action": "finish",
+    "status": "draft_saved",
+    "reason": "方案已保存",
+    "pending": []
+  },
+  "plan": {
+    "task_id": "秋季营销",
+    "topic": "秋季营销",
+    "budget": 10,
+    "deadline": "2026-11-05",
+    "candidate_id": "PLAN_STANDARD",
+    "accepted_estimate": {
+      "ok": true,
+      "candidate_id": "PLAN_STANDARD",
+      "estimated_total": 9,
+      "budget": 10,
+      "over_budget": false,
+      "shortfall": 0.0
+    },
+    "steps": [
+      {
+        "name": "素材检索",
+        "tool": "search_materials",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "topic": "秋季营销",
+          "candidates": [
+            {
+              "id": "PLAN_PREMIUM",
+              "name": "精装方案",
+              "estimated_cost": 12,
+              "quality": "high",
+              "materials": [
+                "MAT_A",
+                "MAT_C",
+                "MAT_E"
+              ]
+            },
+            {
+              "id": "PLAN_STANDARD",
+              "name": "标准方案",
+              "estimated_cost": 8,
+              "quality": "medium",
+              "materials": [
+                "MAT_A",
+                "MAT_B",
+                "MAT_D"
+              ]
+            },
+            {
+              "id": "PLAN_LITE",
+              "name": "轻量方案",
+              "estimated_cost": 5,
+              "quality": "low",
+              "materials": [
+                "MAT_B",
+                "MAT_D"
+              ]
+            }
+          ],
+          "material_count": 6
+        }
+      },
+      {
+        "name": "成本估算",
+        "tool": "estimate_cost",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "candidate_id": "PLAN_STANDARD",
+          "estimated_total": 9,
+          "budget": 10,
+          "over_budget": false,
+          "shortfall": 0.0
+        }
+      },
+      {
+        "name": "脚本生成",
+        "tool": "generate_script",
+        "status": "success",
+        "cost": 1,
+        "result": {
+          "ok": true,
+          "tool": "script_gen",
+          "candidate_id": "PLAN_STANDARD",
+          "script": "[标准方案] 脚本草案：围绕「秋季营销」展开",
+          "cost": 1,
+          "hours": 1
+        }
+      },
+      {
+        "name": "方案保存",
+        "tool": "save_plan",
+        "status": "success",
+        "cost": 0.0,
+        "result": null
+      }
+    ],
+    "fingerprint": "0cbc11ed16fab34f",
+    "total_cost": 9.0
+  },
+  "plan_count": 1,
+  "trace": [
+    {
+      "n": 1,
+      "action": "search_materials",
+      "args": {
+        "topic": "秋季营销"
+      },
+      "reason": "检索候选方案",
+      "observation": {
+        "ok": true,
+        "topic": "秋季营销",
+        "candidates": [
+          {
+            "id": "PLAN_PREMIUM",
+            "name": "精装方案",
+            "estimated_cost": 12,
+            "quality": "high",
+            "materials": [
+              "MAT_A",
+              "MAT_C",
+              "MAT_E"
+            ]
+          },
+          {
+            "id": "PLAN_STANDARD",
+            "name": "标准方案",
+            "estimated_cost": 8,
+            "quality": "medium",
+            "materials": [
+              "MAT_A",
+              "MAT_B",
+              "MAT_D"
+            ]
+          },
+          {
+            "id": "PLAN_LITE",
+            "name": "轻量方案",
+            "estimated_cost": 5,
+            "quality": "low",
+            "materials": [
+              "MAT_B",
+              "MAT_D"
+            ]
+          }
+        ],
+        "material_count": 6
+      }
+    },
+    {
+      "n": 2,
+      "action": "estimate_cost",
+      "args": {
+        "candidate_id": "PLAN_PREMIUM",
+        "budget": 10
+      },
+      "reason": "估算首选方案 精装方案（预估 12）",
+      "observation": {
+        "ok": true,
+        "candidate_id": "PLAN_PREMIUM",
+        "estimated_total": 13,
+        "budget": 10,
+        "over_budget": true,
+        "shortfall": 3
+      }
+    },
+    {
+      "n": 3,
+      "action": "estimate_cost",
+      "args": {
+        "candidate_id": "PLAN_STANDARD",
+        "budget": 10
+      },
+      "reason": "上一方案超预算 3，改选替代 标准方案（预估 8）",
+      "observation": {
+        "ok": true,
+        "candidate_id": "PLAN_STANDARD",
+        "estimated_total": 9,
+        "budget": 10,
+        "over_budget": false,
+        "shortfall": 0.0
+      }
+    },
+    {
+      "n": 4,
+      "action": "generate_script",
+      "args": {
+        "topic": "秋季营销",
+        "candidate_id": "PLAN_STANDARD"
+      },
+      "reason": "为方案 PLAN_STANDARD 生成脚本",
+      "observation": {
+        "ok": true,
+        "tool": "script_gen",
+        "candidate_id": "PLAN_STANDARD",
+        "script": "[标准方案] 脚本草案：围绕「秋季营销」展开",
+        "cost": 1,
+        "hours": 1
+      }
+    },
+    {
+      "n": 5,
+      "action": "save_plan",
+      "args": {
+        "candidate_id": "PLAN_STANDARD"
+      },
+      "reason": "保存最终方案",
+      "observation": {
+        "ok": true,
+        "status": "saved",
+        "fingerprint": "0cbc11ed16fab34f",
+        "message": "方案已保存",
+        "plan": {
+          "task_id": "秋季营销",
+          "topic": "秋季营销",
+          "budget": 10,
+          "deadline": "2026-11-05",
+          "candidate_id": "PLAN_STANDARD",
+          "accepted_estimate": {
+            "ok": true,
+            "candidate_id": "PLAN_STANDARD",
+            "estimated_total": 9,
+            "budget": 10,
+            "over_budget": false,
+            "shortfall": 0.0
+          },
+          "steps": [
+            {
+              "name": "素材检索",
+              "tool": "search_materials",
+              "status": "success",
+              "cost": 0.0,
+              "result": {
+                "ok": true,
+                "topic": "秋季营销",
+                "candidates": [
+                  {
+                    "id": "PLAN_PREMIUM",
+                    "name": "精装方案",
+                    "estimated_cost": 12,
+                    "quality": "high",
+                    "materials": [
+                      "MAT_A",
+                      "MAT_C",
+                      "MAT_E"
+                    ]
+                  },
+                  {
+                    "id": "PLAN_STANDARD",
+                    "name": "标准方案",
+                    "estimated_cost": 8,
+                    "quality": "medium",
+                    "materials": [
+                      "MAT_A",
+                      "MAT_B",
+                      "MAT_D"
+                    ]
+                  },
+                  {
+                    "id": "PLAN_LITE",
+                    "name": "轻量方案",
+                    "estimated_cost": 5,
+                    "quality": "low",
+                    "materials": [
+                      "MAT_B",
+                      "MAT_D"
+                    ]
+                  }
+                ],
+                "material_count": 6
+              }
+            },
+            {
+              "name": "成本估算",
+              "tool": "estimate_cost",
+              "status": "success",
+              "cost": 0.0,
+              "result": {
+                "ok": true,
+                "candidate_id": "PLAN_STANDARD",
+                "estimated_total": 9,
+                "budget": 10,
+                "over_budget": false,
+                "shortfall": 0.0
+              }
+            },
+            {
+              "name": "脚本生成",
+              "tool": "generate_script",
+              "status": "success",
+              "cost": 1,
+              "result": {
+                "ok": true,
+                "tool": "script_gen",
+                "candidate_id": "PLAN_STANDARD",
+                "script": "[标准方案] 脚本草案：围绕「秋季营销」展开",
+                "cost": 1,
+                "hours": 1
+              }
+            },
+            {
+              "name": "方案保存",
+              "tool": "save_plan",
+              "status": "success",
+              "cost": 0.0,
+              "result": null
+            }
+          ],
+          "fingerprint": "0cbc11ed16fab34f",
+          "total_cost": 9.0
+        }
+      }
+    },
+    {
+      "n": 6,
+      "action": "finish",
+      "args": {},
+      "reason": "方案已保存",
+      "observation": {
+        "finished": true,
+        "status": "draft_saved"
+      }
+    }
+  ]
+}

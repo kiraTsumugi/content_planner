@@ -1,0 +1,168 @@
+{
+  "case": "over_budget_no_solution",
+  "description": "预算超限：无可行方案，返回缺口",
+  "topic": "秋季营销",
+  "budget": 3,
+  "deadline": "2026-11-05",
+  "model_mode": "offline-mock",
+  "status": "incomplete",
+  "pending": [
+    "预算缺口 3，请提高预算或缩减范围"
+  ],
+  "final": {
+    "action": "finish",
+    "status": "incomplete",
+    "reason": "预算 3 下无可行方案，最低需 6",
+    "pending": [
+      "预算缺口 3，请提高预算或缩减范围"
+    ]
+  },
+  "plan": {
+    "task_id": "秋季营销",
+    "topic": "秋季营销",
+    "budget": 3,
+    "deadline": "2026-11-05",
+    "candidate_id": "",
+    "accepted_estimate": null,
+    "steps": [
+      {
+        "name": "素材检索",
+        "tool": "search_materials",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "topic": "秋季营销",
+          "candidates": [
+            {
+              "id": "PLAN_PREMIUM",
+              "name": "精装方案",
+              "estimated_cost": 12,
+              "quality": "high",
+              "materials": [
+                "MAT_A",
+                "MAT_C",
+                "MAT_E"
+              ]
+            },
+            {
+              "id": "PLAN_STANDARD",
+              "name": "标准方案",
+              "estimated_cost": 8,
+              "quality": "medium",
+              "materials": [
+                "MAT_A",
+                "MAT_B",
+                "MAT_D"
+              ]
+            },
+            {
+              "id": "PLAN_LITE",
+              "name": "轻量方案",
+              "estimated_cost": 5,
+              "quality": "low",
+              "materials": [
+                "MAT_B",
+                "MAT_D"
+              ]
+            }
+          ],
+          "material_count": 6
+        }
+      },
+      {
+        "name": "成本估算",
+        "tool": "estimate_cost",
+        "status": "success",
+        "cost": 0.0,
+        "result": {
+          "ok": true,
+          "candidate_id": "PLAN_PREMIUM",
+          "estimated_total": 13,
+          "budget": 3,
+          "over_budget": true,
+          "shortfall": 10
+        }
+      }
+    ],
+    "fingerprint": "ff151f36d7fe5d39",
+    "total_cost": 0.0
+  },
+  "plan_count": 0,
+  "trace": [
+    {
+      "n": 1,
+      "action": "search_materials",
+      "args": {
+        "topic": "秋季营销"
+      },
+      "reason": "检索候选方案",
+      "observation": {
+        "ok": true,
+        "topic": "秋季营销",
+        "candidates": [
+          {
+            "id": "PLAN_PREMIUM",
+            "name": "精装方案",
+            "estimated_cost": 12,
+            "quality": "high",
+            "materials": [
+              "MAT_A",
+              "MAT_C",
+              "MAT_E"
+            ]
+          },
+          {
+            "id": "PLAN_STANDARD",
+            "name": "标准方案",
+            "estimated_cost": 8,
+            "quality": "medium",
+            "materials": [
+              "MAT_A",
+              "MAT_B",
+              "MAT_D"
+            ]
+          },
+          {
+            "id": "PLAN_LITE",
+            "name": "轻量方案",
+            "estimated_cost": 5,
+            "quality": "low",
+            "materials": [
+              "MAT_B",
+              "MAT_D"
+            ]
+          }
+        ],
+        "material_count": 6
+      }
+    },
+    {
+      "n": 2,
+      "action": "estimate_cost",
+      "args": {
+        "candidate_id": "PLAN_PREMIUM",
+        "budget": 3
+      },
+      "reason": "估算首选方案 精装方案（预估 12）",
+      "observation": {
+        "ok": true,
+        "candidate_id": "PLAN_PREMIUM",
+        "estimated_total": 13,
+        "budget": 3,
+        "over_budget": true,
+        "shortfall": 10
+      }
+    },
+    {
+      "n": 3,
+      "action": "finish",
+      "args": {},
+      "reason": "预算 3 下无可行方案，最低需 6",
+      "observation": {
+        "finished": true,
+        "status": "incomplete"
+      }
+    }
+  ]
+}

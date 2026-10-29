@@ -1,0 +1,14 @@
+{
+  "_comment": "工具费用与耗时表（合成）。用于成本估算与耗时校验。",
+  "tools": {
+    "script_gen": {"cost_per_call": 1, "hours": 1, "desc": "脚本生成"},
+    "video_edit": {"cost_per_call": 3, "hours": 4, "desc": "视频剪辑"},
+    "graphic_design": {"cost_per_call": 1, "hours": 1, "desc": "平面设计"},
+    "audio_mix": {"cost_per_call": 1, "hours": 1, "desc": "音频混音"}
+  },
+  "_fail_injection": {
+    "topics": ["故障演练"],
+    "tool": "script_gen",
+    "_comment": "当主题命中列表时，script_gen 工具注入失败，用于验证失败路径。"
+  }
+}

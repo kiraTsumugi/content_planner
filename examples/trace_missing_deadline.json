@@ -1,0 +1,44 @@
+{
+  "case": "missing_deadline",
+  "description": "缺截止时间",
+  "topic": "秋季营销",
+  "budget": 10,
+  "deadline": null,
+  "model_mode": "offline-mock",
+  "status": "needs_more_info",
+  "pending": [
+    "请补充：deadline"
+  ],
+  "final": {
+    "action": "finish",
+    "status": "needs_more_info",
+    "reason": "任务信息缺失：deadline",
+    "pending": [
+      "请补充：deadline"
+    ]
+  },
+  "plan": {
+    "task_id": "秋季营销",
+    "topic": "秋季营销",
+    "budget": 10,
+    "deadline": "",
+    "candidate_id": "",
+    "accepted_estimate": null,
+    "steps": [],
+    "fingerprint": "52427efc9b491549",
+    "total_cost": 0
+  },
+  "plan_count": 0,
+  "trace": [
+    {
+      "n": 1,
+      "action": "finish",
+      "args": {},
+      "reason": "任务信息缺失：deadline",
+      "observation": {
+        "finished": true,
+        "status": "needs_more_info"
+      }
+    }
+  ]
+}
