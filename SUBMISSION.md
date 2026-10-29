@@ -5,7 +5,7 @@
 | 项 | 内容 |
 |---|---|
 | 题号 | 内容任务规划 Agent（项目题四选一） |
-| GitHub URL | ⬅️ 待填（如 https://github.com/<用户名>/content-planner）|
+| GitHub URL | https://github.com/kiraTsumugi/content_planner |
 | 分支 | `main` |
 | 交付 tag | `submission-v1` |
 | 运行方式 | CLI |
